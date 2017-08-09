@@ -1,0 +1,5 @@
+prototype(PackageFactory.Hyphenate:Hyphenate) {
+    @class = 'PackageFactory\\Hyphenate\\Fusion\\HyphenateImplementation'
+
+    content = ${value}
+}

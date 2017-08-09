@@ -1,0 +1,20 @@
+{
+    "description": "Hyphenation for Neos",
+    "type": "neos-package",
+    "name": "packagefactory/hyphenate",
+    "require": {
+        "neos/flow": "*",
+        "neos/fusion": "*",
+        "vanderlee/syllable": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "PackageFactory\\Hyphenate\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "PackageFactory.Hyphenate"
+        }
+    }
+}
