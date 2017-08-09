@@ -49,10 +49,10 @@ class HyphenateImplementation extends AbstractFusionObject
 
     public function evaluate()
     {
-        $package = $this->packageManager->getPackage('PackageFactory.Hyphenate');
+        $package = $this->packageManager->getPackage('vanderlee.syllable');
         $languagesDirectory = Files::concatenatePaths([
-            $package->getResourcesPath(),
-            'Private/Languages'
+            $package->getPackagePath(),
+            'languages'
         ]);
         $cacheDirectory = Files::concatenatePaths([
             $this->environment->getPathToTemporaryDirectory(),
