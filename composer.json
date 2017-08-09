@@ -2,6 +2,14 @@
     "description": "Hyphenation for Neos",
     "type": "neos-package",
     "name": "packagefactory/hyphenate",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Wilhelm Behncke",
+            "email": "behncke@sitegeist.de",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "neos/flow": "*",
         "neos/fusion": "*",
