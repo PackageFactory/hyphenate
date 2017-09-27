@@ -9,16 +9,40 @@ to the require-section of the composer.json or run `composer require packagefact
 
 ## Usage
 
-Just use the `PackageFactory.Hyphenate:Hyphenate` Fusion object as a processor on the fusion value that should be hyphenated.
+### Text
+Just use the `PackageFactory.Hyphenate:HyphenateText` Fusion object as a processor on the fusion value that should be hyphenated.
 
 ```
 someFusionValue = 'Grund­stücks­ver­kehrs­ge­neh­mi­gungs­zu­stän­dig­keits­über­tra­gungs­ver­ord­nung'
-someFusionValue.@process.hyphenate = PackageFactory.Hyphenate:Hyphenate {
-	locale = 'de'
+someFusionValue.@process.hyphenate = PackageFactory.Hyphenate:HyphenateText {
+  locale = 'de'
 }
 ```
 
-**!!! Warning: !!!** This mechanism breaks HTML code. There's no support for hyphenating HTML Strings yet (PRs are welcome ;) ).
+### HTML
+Similar to text elements you can use `PackageFactory.Hyphenate:HyphenateHtml` for HTML elements.
+
+```
+someFusionHtml.@process.hyphenate = PackageFactory.Hyphenate:HyphenateHtml {
+  locale = 'de'
+}
+```
+
+## Neos CMS integration example
+
+You can easily activate hyphenation for all Neos CMS text- and headline nodetypes with following Fusion code: 
+
+```
+prototype(Neos.NodeTypes:Text) {
+  text.@process.hyphenate = PackageFactory.Hyphenate:HyphenateHtml
+}
+
+prototype(Neos.NodeTypes:Headline) {
+  title.@process.hyphenate = PackageFactory.Hyphenate:HyphenateHtml
+}
+
+```
+
 
 ## Parameters
 
