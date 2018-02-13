@@ -1,5 +1,13 @@
 prototype(PackageFactory.Hyphenate:Hyphenate) {
     @class = 'PackageFactory\\Hyphenate\\Fusion\\HyphenateImplementation'
-
+    type = 'text'
     content = ${value}
+
+    @if.onlyRenderWhenNotInBackend = ${!documentNode.context.inBackend}
+}
+
+prototype(PackageFactory.Hyphenate:HyphenateText) < prototype(PackageFactory.Hyphenate:Hyphenate)
+
+prototype(PackageFactory.Hyphenate:HyphenateHtml) < prototype(PackageFactory.Hyphenate:Hyphenate) {
+    type = 'html'
 }

@@ -42,6 +42,11 @@ class HyphenateImplementation extends AbstractFusionObject
         return (string) $this->localizationService->getConfiguration()->getCurrentLocale();
     }
 
+    public function getType()
+    {
+        return strtolower($this->fusionValue('type'));
+    }
+
     public function getThreshold()
     {
         return $this->fusionValue('threshold');
@@ -70,6 +75,17 @@ class HyphenateImplementation extends AbstractFusionObject
         $syllable->setHyphen(new \Syllable_Hyphen_Soft);
         $syllable->setMinWordLength($this->getThreshold());
 
-        return $syllable->hyphenateText($this->getContent());
+        switch ($this->getType()) {
+            case 'html':
+                $html = mb_convert_encoding($this->getContent(), 'HTML-ENTITIES', "UTF-8");
+                $result = $syllable->hyphenateHtml($html);
+                break;
+            case 'test':
+                // Break missing intendedly
+            default:
+                $result = $syllable->hyphenateText($this->getContent());
+                break;
+        }
+        return $result;
     }
 }
