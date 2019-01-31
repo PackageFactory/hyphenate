@@ -7,6 +7,8 @@ use Neos\Flow\I18n\Service as LocalizationService;
 use Neos\Flow\Package\PackageManagerInterface;
 use Neos\Utility\Files;
 use Neos\Fusion\FusionObjects\AbstractFusionObject;
+use Vanderlee\Syllable\Hyphen;
+use Vanderlee\Syllable\Syllable;
 
 class HyphenateImplementation extends AbstractFusionObject
 {
@@ -67,12 +69,12 @@ class HyphenateImplementation extends AbstractFusionObject
 
         Files::createDirectoryRecursively($cacheDirectory);
 
-        $syllable = new \Syllable($this->getLocale());
+        $syllable = new Syllable($this->getLocale());
 
 	    $syllable->getSource()->setPath($languagesDirectory);
         $syllable->getCache()->setPath($cacheDirectory);
 
-        $syllable->setHyphen(new \Syllable_Hyphen_Soft);
+        $syllable->setHyphen(new Hyphen\Soft());
         $syllable->setMinWordLength($this->getThreshold());
 
         switch ($this->getType()) {

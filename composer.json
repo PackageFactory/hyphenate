@@ -1,7 +1,7 @@
 {
     "description": "Hyphenation for Neos",
     "type": "neos-package",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "name": "packagefactory/hyphenate",
     "license": "GPL-3.0",
     "authors": [
@@ -14,7 +14,7 @@
     "require": {
         "neos/flow": "*",
         "neos/fusion": "*",
-        "vanderlee/syllable": "^1.4"
+        "vanderlee/syllable": "1.5"
     },
     "autoload": {
         "psr-4": {
