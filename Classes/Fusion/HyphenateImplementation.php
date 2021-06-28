@@ -4,7 +4,7 @@ namespace PackageFactory\Hyphenate\Fusion;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Utility\Environment;
 use Neos\Flow\I18n\Service as LocalizationService;
-use Neos\Flow\Package\PackageManagerInterface;
+use Neos\Flow\Package\PackageManager;
 use Neos\Utility\Files;
 use Neos\Fusion\FusionObjects\AbstractFusionObject;
 use Vanderlee\Syllable\Hyphen;
@@ -20,7 +20,7 @@ class HyphenateImplementation extends AbstractFusionObject
 
     /**
      * @Flow\Inject
-     * @var PackageManagerInterface
+     * @var PackageManager
      */
     protected $packageManager;
 
