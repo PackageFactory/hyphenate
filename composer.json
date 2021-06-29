@@ -1,7 +1,6 @@
 {
     "description": "Hyphenation for Neos",
     "type": "neos-package",
-    "version": "1.1.1",
     "name": "packagefactory/hyphenate",
     "license": "GPL-3.0",
     "authors": [
